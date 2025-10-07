@@ -1,0 +1,228 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.card{
+    display: flex;
+    background-color: white;
+    width: 600px;
+    height: 600px;
+
+    border: 2px solid #00ffff; /* колір неону */
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 12.5%);
+
+    /* м’яке світіння лише по краю */
+    box-shadow:
+            0 0 8px #00ffff,
+            0 0 16px #00ffff;
+
+
+    overflow: hidden;
+}
+.card-image {
+    flex: 1; /* половина простору */
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* обрізає картинку рівно по межах */
+}
+
+.card-content {
+    flex: 1; /* інша половина */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #282c34;
+    font-family: '-apple-system', sans-serif;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #00ffff;
+    border-radius: 12px;
+    box-shadow:
+            0 0 6px #00ffff,
+            0 0 12px #00ffff;
+
+    /* щоб елементи не прилипали */
+    gap: 15px;
+}
+
+/* стилі для внутрішніх елементів */
+.card-content > * {
+    padding: 10px 0;
+    border: 3px solid #282c34;
+    border-radius: 15px;/* тонка неонова лінія між елементами */
+    padding: 12px;
+}
+
+
+
+/* легке світіння тексту */
+.card-content h2,
+.card-content p {
+    text-shadow: 0 0 4px #00ffff;
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.card_1 {
+    position: absolute;      /* робимо абсолютним */
+    top: 50%;                /* 50% від висоти сторінки */
+    left: 50%;               /* 50% від ширини сторінки */
+    transform: translate(-50%, 12.5%); /* зсуваємо на половину власного розміру */
+
+    display: flex;
+    width: 700px;
+    height: 600px;
+    background-color: white;
+    border: 2px solid #00ffff;
+    border-radius: 15px;
+    box-shadow:
+            0 0 8px #00ffff,
+            0 0 16px #00ffff;
+    overflow: hidden;
+}
+
+/* ліва частина — фото */
+.card_1-image {
+    flex: 1;
+    border-right: 2px solid rgba(0, 255, 255, 0.4);
+}
+
+.card_1-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* права частина — інформація */
+.card_1-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding: 30px;
+    color: #282c34;
+    text-align: left;
+    border-left: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: 0 15px 15px 0;
+    box-shadow: inset 0 0 8px rgba(0, 255, 255, 0.3);
+    gap: 10px;
+}
+
+.card_1-content > * {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #282c34;
+}
+
+
+
+.card_1-content h2 {
+
+    text-align: center;
+    text-shadow: 0 0 6px #00ffff;
+    margin-bottom: 15px;
+}
+.flip-digit {
+    position: relative;
+    width: 50px;
+    height: 70px;
+    perspective: 1000px;
+    margin: 0 2px;
+    display: inline-block;
+}
+
+.flip-top,
+.flip-bottom,
+.flip-top-flip,
+.flip-bottom-flip {
+    position: absolute;
+
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border: 2px solid #00ffff;
+    border-radius: 5px;
+    background: #000;
+    color: #00ffff;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 35px;
+}
+
+/* статичні частини */
+.flip-top { top: 0; }
+.flip-bottom { bottom: 0; }
+
+/* анімаційні частини */
+.flip-top-flip {
+    top: 0;
+    transform-origin: bottom;
+    transform: rotateX(0deg);
+    animation: flipTop 0.5s forwards;
+}
+
+.flip-bottom-flip {
+    bottom: 0;
+    transform-origin: top;
+    transform: rotateX(90deg);
+    animation: flipBottom 0.5s forwards;
+}
+.flip-clock {
+    position: absolute;   /* абсолютне позиціонування */
+    top: 50%;            /* 50% від висоти сторінки */
+    left: 50%;           /* 50% від ширини сторінки */
+    transform: translate(-50%, 300%); /* зміщуємо на половину ширини і висоти */
+    display: flex;
+    gap: 5px;             /* відстань між цифрами */
+}
+
+/* анімації перевороту */
+@keyframes flipTop {
+    0% { transform: rotateX(0deg); }
+    100% { transform: rotateX(-90deg); }
+}
+
+@keyframes flipBottom {
+    0% { transform: rotateX(90deg); }
+    100% { transform: rotateX(0deg); }
+}
